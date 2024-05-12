@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <title>Redbean0721's Home</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/home.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/typed.js"></script>
+	<script src="./js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap">
+    <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap-grid.min.css">
+
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="container">
+        <div class="main-box">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="box-left">
+                        <img src="./img/favicon.png" alt="Avatar" title="不可以rua！">
+                        <h3>Redbean0721</h3>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="box-right">
+                        <ul class="nav-bar">
+                            <li class="nav-item nav-active" id="home"><a href="javascript:goHome();">Home</a></li>
+                            <li class="nav-item" id="blog"><a href="javascript:goBlog();">Blog</a></li>
+                            <li class="nav-item" id="projects"><a href="javascript:goProjects();">Projects</a></li>
+                            <li class="nav-item"><a href="https://api.redmc.xyz" target="_blank">API</a></li>
+                        </ul>
+                        <div class="box-content" id="homeの">
+                            <p>Hello, I'm <span id="hi"></span></p>
+                            <p>Age: ?? <del>about 17 years-old</del></p>
+                            <p>Date of birth: 07-21</p>
+                            <p>Email: <a href="mailto:redbean0721@gmail.com">redbean0721@gmail.com</a></p>
+                            <p>
+                                Contact me:
+                                <a href="https://discordapp.com/users/949569201587228722">Discord</a> |
+                                <a href="https://github.com/redbean0721">Github</a>
+                                [<a href="https://github.com/redbean0721/LightPage" style="color: #858585;">This Project</a>]
+                            </p>
+                            <p>Copyright © 2023~2024 Redbean0721 all right reserved</p>
+                        </div>
+
+                        <div>
+                            <div class="box-content" id="blogの">
+                                <div class="blogs" style="display: inline-grid;">
+                                    <p>:)</p>
+                                </div>
+                            </div>
+
+                            <div class="box-content" id="projectsの">
+                                <div class="box-item">Emm...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#blogの").hide();
+        $("#projectsの").hide();
+    </script>
+    <script src="./js/home.js"></script>
+</body>
+</html>
