@@ -6,13 +6,13 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <title>Redbean0721's Home</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/home.js"></script>
     <script src="./js/jquery.js"></script>
     <script src="./js/typed.js"></script>
 	<script src="./js/bootstrap.js"></script>
 
-    <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap">
-    <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap-grid.min.css">
+    <!-- <link rel="stylesheet" href="https://font.sec.miui.com/font/css?family=MiSans:400,500,600,700:Chinese_Simplify,Latin,Chinese_Traditional&amp;display=swap"> -->
+    <!-- <link rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap-grid.min.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
 
 </head>
 <body>
@@ -33,30 +33,38 @@
                             <li class="nav-item nav-active" id="home"><a href="javascript:goHome();">Home</a></li>
                             <li class="nav-item" id="blog"><a href="javascript:goBlog();">Blog</a></li>
                             <li class="nav-item" id="projects"><a href="javascript:goProjects();">Projects</a></li>
-                            <li class="nav-item"><a href="https://api.redmc.xyz" target="_blank">API</a></li>
+                            <li class="nav-item"><a href="https://api.redbean0721.com" target="_blank">API</a></li>
                         </ul>
-                        <div class="box-content" id="homeの">
+                        <div class="box-content" id="home-section">
                             <p>Hello, I'm <span id="hi"></span></p>
-                            <p>Age: ?? <del>about 17 years-old</del></p>
+                            <p>Age: ???</p> <!-- <del>about 18 years-old</del> -->
                             <p>Date of birth: 07-21</p>
-                            <p>Email: <a href="mailto:redbean0721@gmail.com">redbean0721@gmail.com</a></p>
+                            <p>Email: <a href="mailto:redbean0721@redbean0721.com">redbean0721@redbean0721.com</a></p>
                             <p>
                                 Contact me:
-                                <a href="https://discordapp.com/users/949569201587228722">Discord</a> |
-                                <a href="https://github.com/redbean0721">Github</a>
-                                [<a href="https://github.com/redbean0721/LightPage" style="color: #858585;">This Project</a>]
+                                <a href="https://discordapp.com/users/874506820000047124" target="_blank">Discord</a> |
+                                <a href="https://github.com/redbean0721" target="_blank">Github</a>
+                                [<a href="https://github.com/redbean0721/LightPage" target="_blank">This Project</a>]
+                                <!-- [<a href="https://github.com/redbean0721/LightPage" style="color: #858585;">This Project</a>, based on <a href="https://github.com/LazyCreeper/LightPage" target="_blank" style="color: #858585;">LightPage by LazyCreeper</a>] -->
                             </p>
-                            <p>Copyright © 2023~2024 Redbean0721 all right reserved</p>
+                            <p style="font-size: 0.8em; color: #6c757d;">Based on <a href="https://github.com/LazyCreeper/LightPage" target="_blank">LightPage</a> by LazyCreeper.</p>
+                            <p id="copyright"></p>
                         </div>
 
                         <div>
-                            <div class="box-content" id="blogの">
+                            <div class="box-content" id="blog-section">
                                 <div class="blogs" style="display: inline-grid;">
-                                    <p>:)</p>
+                                    <!-- <p>加載不出來？試試訪問：<a href="https://blog.imlazy.ink:233/">https://blog.imlazy.ink:233/</a></p> -->
+                                    <!-- <p>加載不出來？試試訪問：<a href="https://blog.redbean0721.com/">https://blog.redbean0721.com/</a></p> -->
+                                    <!-- <p>:)</p> -->
+                                    <script src="./js/getBlog.js"></script>
                                 </div>
                             </div>
 
-                            <div class="box-content" id="projectsの">
+                            <div class="box-content" id="projects-section">
+                                <div class="box-item"><a href="https://blog.redbean0721.com/" target="_blank">redbean0721 blog</a></div>
+                                <div class="box-item"><a href="https://redmc.xyz/" target="_blank">RedMC 紅豆伺服器</a></div>
+                                <div class="box-item"><a href="https://api.redbean0721.com/" target="_blank">CoolAPI</a></div>
                                 <div class="box-item">Emm...</div>
                             </div>
                         </div>
@@ -67,9 +75,13 @@
     </div>
 
     <script>
-        $("#blogの").hide();
-        $("#projectsの").hide();
+        $("#blog-section").hide();
+        $("#projects-section").hide();
     </script>
     <script src="./js/home.js"></script>
+    <script>
+        const year = new Date().getFullYear();
+        document.getElementById('copyright').innerHTML = `Copyright &copy; 2023~${year} Redbean0721 All rights reserved`;
+    </script>
 </body>
 </html>

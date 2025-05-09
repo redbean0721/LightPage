@@ -1,6 +1,15 @@
+@font-face {
+    font-family: 'OpenHuninn';
+    src: url('../fonts/jf-openhuninn-2.1.woff2') format('woff2'),
+         url('../fonts/jf-openhuninn-2.1.woff') format('woff'),
+         url('../fonts/jf-openhuninn-2.1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: MiSans, sans-serif;
+    font-family: 'OpenHuninn', sans-serif;
     background: linear-gradient(180deg, #ffbfd2, #ffffff) no-repeat;
 }
 
@@ -32,7 +41,7 @@ a:hover {
 }
 
 .bg {
-    background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.redmc.xyz/img") no-repeat;
+    background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img") no-repeat;
     background-size: cover;
     position: fixed;
     width: 100%;
@@ -137,7 +146,7 @@ a:hover {
     }
 
     .bg {
-        background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.redmc.xyz/img") no-repeat;
+        background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img-phone") no-repeat;
         background-size: cover;
     }
 
@@ -204,7 +213,7 @@ a:hover {
     }
 
     .bg {
-        background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.redmc.xyz/img") no-repeat;
+        background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img") no-repeat;
         background-size: cover;
     }
 
@@ -215,7 +224,7 @@ a:hover {
 
     @media (max-width: 768px) {
         .bg {
-            background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.redmc.xyz/img") no-repeat;
+            background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img-phone") no-repeat;
             background-size: cover;
         }
         

@@ -16,18 +16,18 @@ function goHome() {
     $("#home").addClass("nav-active");
     $("#blog").removeClass("nav-active");
     $("#projects").removeClass("nav-active");
-    $("#homeの").show();
-    $("#blogの").hide();
-    $("#projectsの").hide();
+    $("#home-section").show();
+    $("#blog-section").hide();
+    $("#projects-section").hide();
 }
 
 function goBlog() {
     $("#blog").addClass("nav-active");
     $("#home").removeClass("nav-active");
     $("#projects").removeClass("nav-active");
-    $("#blogの").show();
-    $("#homeの").hide();
-    $("#projectsの").hide();
+    $("#blog-section").show();
+    $("#home-section").hide();
+    $("#projects-section").hide();
 
     // $.get("https://blog.imlazy.ink:233/index.php/feed/", function (data) {
     //     $('#blogs').empty();
@@ -53,7 +53,7 @@ function goProjects() {
     $("#projects").addClass("nav-active");
     $("#blog").removeClass("nav-active");
     $("#home").removeClass("nav-active");
-    $("#projectsの").show();
-    $("#blogの").hide();
-    $("#homeの").hide();
+    $("#projects-section").show();
+    $("#blog-section").hide();
+    $("#home-section").hide();
 }
