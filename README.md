@@ -2,8 +2,7 @@
 一個簡單的個人網頁，基於 [LazyCreeper/LightPage](https://github.com/LazyCreeper/LightPage) 修改。
 
 ### 展示
-https://redbean.at.tw
-https://redbean0721.com
+https://redbean.at.tw | https://redbean0721.com
 
 ### 關於此版本
 此版本由 redbean0721 進行個人化修改，包括字體更換及相關樣式調整。
