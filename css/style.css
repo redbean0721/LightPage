@@ -41,7 +41,8 @@ a:hover {
 }
 
 .bg {
-    background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img") no-repeat;
+    /* background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img") no-repeat; */
+    background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.redbean0721.com/api/img") no-repeat;
     background-size: cover;
     position: fixed;
     width: 100%;
@@ -146,7 +147,8 @@ a:hover {
     }
 
     .bg {
-        background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img-phone") no-repeat;
+        /* background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.imlazy.ink/img-phone") no-repeat; */
+        background: linear-gradient(45deg, #ffffff99, #ffffffcc), url("https://api.redbean0721.com/api/img-phone") no-repeat;
         background-size: cover;
     }
 
@@ -213,7 +215,8 @@ a:hover {
     }
 
     .bg {
-        background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img") no-repeat;
+        /* background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img") no-repeat; */
+        background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.redbean0721.com/api/img") no-repeat;
         background-size: cover;
     }
 
@@ -224,7 +227,8 @@ a:hover {
 
     @media (max-width: 768px) {
         .bg {
-            background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img-phone") no-repeat;
+            /* background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.imlazy.ink/img-phone") no-repeat; */
+            background: linear-gradient(45deg, #00000099, #000000cc), url("https://api.redbean0721.com/api/img-phone") no-repeat;
             background-size: cover;
         }
         

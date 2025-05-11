@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const linkElement = document.createElement('a');
             linkElement.href = link;
             linkElement.textContent = title;
+            linkElement.target = '_blank';
             blogItem.appendChild(linkElement);
             blogsContainer.appendChild(blogItem);
           }
