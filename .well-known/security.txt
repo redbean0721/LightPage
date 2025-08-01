@@ -1,0 +1,4 @@
+Contact: mailto:security@redbean0721.com
+Encryption: https://redbean0721.com/.well-known/pgp-key.txt
+Expires: 2028-05-28T16:05:00Z
+Preferred-Languages: zh-TW, en
