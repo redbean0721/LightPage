@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             linkElement.textContent = title;
             linkElement.target = '_blank';
             blogItem.appendChild(linkElement);
-            blogsContainer.appendChild(blogItem);
+            blogsContainer.prepend(blogItem);   // 倒序排列
           }
         });
         // 超過 5 篇才啟用橫向捲動
