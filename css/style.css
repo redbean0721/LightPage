@@ -1,3 +1,40 @@
+.blogs {
+    display: block;
+    max-height: 220px; /* 約5篇，每篇44px，可依實際調整 */
+    overflow-y: auto;
+    overflow-x: unset;
+    padding-bottom: 8px;
+}
+
+.blogs::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.blogs::-webkit-scrollbar-thumb {
+    background: #ffbfd2;
+    border-radius: 4px;
+}
+.blogs::-webkit-scrollbar-track {
+    background: #0000001a;
+}
+
+.blogs p {
+    min-width: 160px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* 橫向 scrollbar 美化 */
+.blogs::-webkit-scrollbar {
+    height: 8px;
+}
+.blogs::-webkit-scrollbar-thumb {
+    background: #ffbfd2;
+    border-radius: 4px;
+}
+.blogs::-webkit-scrollbar-track {
+    background: #0000001a;
+}
 @font-face {
     font-family: 'OpenHuninn';
     src: url('../fonts/jf-openhuninn-2.1.woff2') format('woff2'),
