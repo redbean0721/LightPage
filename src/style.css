@@ -1,0 +1,362 @@
+@font-face {
+	font-family: 'OpenHuninn';
+	src:
+		url('/fonts/jf-openhuninn-2.1.woff2') format('woff2'),
+		url('/fonts/jf-openhuninn-2.1.woff') format('woff'),
+		url('/fonts/jf-openhuninn-2.1.ttf') format('truetype');
+	font-display: swap;
+}
+
+:root {
+	font-family: 'OpenHuninn', sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+	color: #1f2328;
+	background: linear-gradient(180deg, #00b1ff40, #ffffff) no-repeat;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	--border-color: #6d6d6d61;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background: transparent;
+}
+
+a {
+	color: unset;
+	text-decoration: none;
+	transition: all 0.4s;
+	filter: opacity(0.9);
+}
+
+a:hover {
+	color: #ff386e;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #0000001a;
+}
+
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px #00000080;
+}
+
+::selection {
+	background: #000;
+	color: #fff;
+}
+
+#app {
+	min-height: 100vh;
+}
+
+.bg {
+	background:
+		linear-gradient(45deg, #ffffff99, #ffffffcc),
+		url('https://api.redbean0721.com/api/img') no-repeat;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -3;
+	top: 0;
+	left: 0;
+}
+
+.page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+}
+
+.main-box {
+	width: min(980px, 92vw);
+	background-color: #ffffff66;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 0 100px #b0b0b0;
+}
+
+.main-box-inner {
+	display: flex;
+	gap: 0;
+}
+
+.box-left {
+	border-right: 1px solid var(--border-color);
+	text-align: center;
+	padding: 28px 20px 14px;
+	width: 32%;
+}
+
+.box-left img {
+	border-radius: 50%;
+	width: min(220px, 100%);
+	box-shadow: 0 0 10px #aaa;
+	cursor: wait;
+	transition-delay: 0.2s;
+	transition-duration: 1s;
+}
+
+/* .box-left img:hover {
+	transform: rotate(360deg);
+} */
+
+.box-left h3 {
+	font-weight: 400;
+	margin: 16px 0 6px;
+}
+
+.box-right {
+	flex: 1;
+	overflow: hidden;
+	padding: 12px 16px 22px;
+}
+
+.nav-bar {
+	margin: 0;
+	padding-left: 0;
+	max-width: 100%;
+	display: flex;
+}
+
+.nav-item {
+	list-style-type: none;
+	width: 100%;
+	padding: 1% 4% 1% 4%;
+	display: inline-grid;
+	text-align: center;
+}
+
+.nav-active {
+	border-bottom: 1px solid var(--border-color);
+	border-left: 1px solid var(--border-color);
+	border-right: 1px solid var(--border-color);
+	font-weight: 500;
+}
+
+.box-content {
+	margin: 2.4% 0;
+	border-left: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-color);
+	width: 100%;
+	padding: 6px 0 4px;
+}
+
+.box-content p {
+	padding: 0;
+	margin: 10px;
+}
+
+.box-content b {
+	font-weight: 600;
+}
+
+.divider {
+	border-bottom: 1px solid var(--border-color);
+}
+
+.box-item {
+	padding: 3px 8px;
+	border: 1px solid;
+	margin: 10px 0 0 10px;
+	display: inline-block;
+	transition: all 0.4s;
+	border-color: rgb(37 37 37 / 55%);
+}
+
+.box-item:hover {
+	padding: 3px 15px;
+	box-shadow: 0 0 10px #afafaf;
+}
+
+.project-group {
+	margin-bottom: 24px;
+}
+
+.group-title {
+	font-size: 0.95em;
+	font-weight: 600;
+	margin: 10px 10px 10px;
+	color: #a0a0a0;
+	border-bottom: 1px solid var(--border-color);
+	padding-bottom: 6px;
+}
+
+.project-items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.box-item .item-header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.box-item .item-description {
+	margin: 4px 0 0;
+	padding: 0;
+	font-size: 0.85em;
+	color: #878787;
+}
+
+.badge {
+	font-size: 0.7em;
+	background: #ff386e;
+	color: #fff;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-weight: 500;
+}
+
+.box-item.featured {
+	border-color: #ff386e;
+}
+
+.blogs {
+	display: inline-grid;
+	width: 100%;
+	max-height: 40svh;
+	overflow-y: auto;
+}
+
+.blogs.scrollable {
+	overflow-y: auto;
+}
+
+.blog-item {
+	margin: 6px 10px;
+}
+
+.muted {
+	font-size: 0.85em;
+	color: #6c757d;
+}
+
+@media (max-width: 768px) {
+	.bg {
+		background:
+			linear-gradient(45deg, #ffffff99, #ffffffcc),
+			url('https://api.redbean0721.com/api/img-phone') no-repeat;
+		background-size: cover;
+	}
+
+	.page {
+		padding: 12px;
+	}
+
+	.main-box-inner {
+		flex-direction: column;
+	}
+
+	.box-left {
+		border: 0;
+		padding: 16px 10%;
+		width: 100%;
+	}
+
+	.box-left img {
+		width: 30svw;
+		min-width: 150px;
+	}
+
+	.box-content {
+		border-top: 0;
+		border-left: 0;
+		margin: 0;
+		width: 100%;
+	}
+
+	.nav-item {
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.nav-active {
+		border-bottom: 0;
+		border-top: 1px solid var(--border-color);
+	}
+
+	.box-item a {
+		display: block;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: #dadada;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: #ffffff1a;
+	}
+
+	::-webkit-scrollbar-thumb {
+		box-shadow: inset 0 0 6px #ffffff80;
+	}
+
+	::selection {
+		background: #fff;
+		color: #000;
+	}
+
+	.bg {
+		background:
+			linear-gradient(45deg, #00000099, #000000cc),
+			url('https://api.redbean0721.com/api/img') no-repeat;
+		background-size: cover;
+	}
+
+	.main-box {
+		background-color: #00000066;
+		box-shadow: 0 0 20px #00000054;
+	}
+
+	.box-item {
+		border-color: rgb(198 198 198 / 55%);
+	}
+
+	@media (max-width: 768px) {
+		.bg {
+			background:
+				linear-gradient(45deg, #00000099, #000000cc),
+				url('https://api.redbean0721.com/api/img-phone') no-repeat;
+			background-size: cover;
+		}
+
+		.main-box {
+			background-color: unset;
+			box-shadow: unset;
+			backdrop-filter: none;
+		}
+	}
+}
+
+.slide-x-enter-active,
+.slide-x-leave-active {
+	transition: all 0.25s ease-out;
+}
+
+.slide-x-enter-from {
+	opacity: 0;
+	transform: translateX(30px);
+}
+
+.slide-x-leave-to {
+	opacity: 0;
+	transform: translateX(-30px);
+}
