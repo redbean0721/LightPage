@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
 		<p>
 			Contact me:
 			<a
-				href="https://discordapp.com/users/874506820000047124"
+				href="https://discordapp.com/users/949569201587228722"
 				target="_blank"
 				rel="noreferrer"
 			>
