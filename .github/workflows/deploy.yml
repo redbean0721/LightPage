@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:latest
+          tags: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
