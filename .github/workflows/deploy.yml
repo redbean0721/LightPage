@@ -37,6 +37,6 @@ jobs:
         with:
           context: .
           push: true
-          platform: linux/arm64
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.prep.outputs.tag }}:latest
           no-cache: true
