@@ -52,21 +52,22 @@ const projectGroups: ProjectGroup[] = [
 		<div v-for="group in projectGroups" :key="group.title" class="project-group">
 			<h4 class="group-title">{{ group.title }}</h4>
 			<div class="project-items">
-				<div
+				<component
+					:is="item.href ? 'a' : 'div'"
 					v-for="(item, index) in group.items"
 					:key="index"
 					class="box-item"
 					:class="{ featured: item.isFeatured }"
+					:href="item.href"
+					:target="item.href ? '_blank' : undefined"
+					:rel="item.href ? 'noopener noreferrer' : undefined"
 				>
 					<div class="item-header">
-						<a v-if="item.href" :href="item.href" target="_blank" rel="noreferrer">{{
-							item.text
-						}}</a>
-						<span v-else>{{ item.text }}</span>
+						<span>{{ item.text }}</span>
 						<span v-if="item.isFeatured" class="badge">Featured</span>
 					</div>
 					<p v-if="item.description" class="item-description">{{ item.description }}</p>
-				</div>
+				</component>
 			</div>
 		</div>
 	</div>
