@@ -33,7 +33,7 @@ metadata:
   namespace: default
 spec:
   type: ClusterIP
-  ipFamilyPolicy: SingleStack
+  ipFamilyPolicy: PreferDualStack
   ipFamilies:
     - IPv4
     - IPv6
