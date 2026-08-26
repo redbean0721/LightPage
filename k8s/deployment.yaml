@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: litepage-web
+  name: lightpage-web
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: litepage-web
+      app: lightpage-web
   template:
     metadata:
       labels:
-        app: litepage-web
+        app: lightpage-web
     spec:
       containers:
-        - name: litepage-web
+        - name: lightpage-web
           image: ghcr.io/redbean0721/lightpage:latest
           ports:
             - containerPort: 80
@@ -29,12 +29,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: litepage-web-svc
+  name: lightpage-web-svc
   namespace: default
 spec:
   type: ClusterIP
   selector:
-    app: litepage-web
+    app: lightpage-web
   ports:
     - protocol: TCP
       port: 80
