@@ -33,6 +33,10 @@ metadata:
   namespace: default
 spec:
   type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  ipFamilies:
+    - IPv4
+    - IPv6
   selector:
     app: lightpage-web
   ports:
