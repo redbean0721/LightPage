@@ -64,30 +64,30 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/${{ github.repository_owner }}/lightpage-web:${{ steps.meta.outputs.TAG }}
-            ghcr.io/${{ github.repository_owner }}/lightpage-web:latest
+            ghcr.io/${{ github.repository_owner }}/lightpage:${{ steps.meta.outputs.TAG }}
+            ghcr.io/${{ github.repository_owner }}/lightpage:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Update Deployment Image Tag
         run: |
           OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          sed -i "s|image: ghcr.io/${OWNER_LC}/lightpage-web:.*|image: ghcr.io/${OWNER_LC}/lightpage-web:${{ steps.meta.outputs.TAG }}|g" k8s/deployment.yaml
+          sed -i "s|image: ghcr.io/${OWNER_LC}/lightpage:.*|image: ghcr.io/${OWNER_LC}/lightpage:${{ steps.meta.outputs.TAG }}|g" k8s/deployment.yaml
 
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          # passphrase: ${{ secrets.GPG_PASSPHRASE }}
           git_user_signingkey: true
           git_commit_gpgsign: true
-          git_committer_name: "redbean0721"
-          git_committer_email: "redbean0721@gmail.com"
+          git_committer_name: "Redbean0721 Deploy Bot"
+          git_committer_email: "deploy@redbean0721.com"
 
       - name: Commit and Push Changes
         run: |
-          git config user.name "redbean0721"
-          git config user.email "redbean0721@gmail.com"
+          git config user.name "Redbean0721 Deploy Bot"
+          git config user.email "deploy@redbean0721.com"
           git status
-          git commit -a -S -m "deploy(lightpage-web): $COMMIT_SUBJECT" -m "Update image tag to ${{ steps.meta.outputs.TAG }} [skip ci]"
+          git commit -a -S -m "deploy: $COMMIT_SUBJECT" -m "Update image tag to ${{ steps.meta.outputs.TAG }}"
           git push origin main

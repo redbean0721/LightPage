@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: litepage-web
-          image: ghcr.io/redbean0721/litepage-web:latest
+          image: ghcr.io/redbean0721/litepage:latest
           ports:
             - containerPort: 80
           resources:
