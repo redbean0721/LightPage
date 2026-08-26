@@ -13,7 +13,10 @@ on:
       - 'yarn.lock'
       - 'vite.config.ts'
       - 'Dockerfile'
-      - '.github/workflows/deploy.yml'
+      - 'nginx/**'
+      - 'router.ts'
+      - 'index.html'
+      - '.github/workflows/build-push-update.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
