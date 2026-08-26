@@ -1,0 +1,93 @@
+name: Build, Push to GHCR, and Update Manifests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'views/**'
+      - 'public/**'
+      - 'package.json'
+      - 'yarn.lock'
+      - 'vite.config.ts'
+      - 'Dockerfile'
+      - '.github/workflows/deploy.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_and_update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} 
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Get Image Tag and Commit Message
+        id: meta
+        run: |
+          echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          COMMIT_SUBJECT=$(git log -1 --format="%s")
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "COMMIT_SUBJECT<<$EOF" >> $GITHUB_ENV
+          echo "$COMMIT_SUBJECT" >> $GITHUB_ENV
+          echo "$EOF" >> $GITHUB_ENV
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+
+      - name: Build and Push Docker Image to GHCR
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/lightpage-web:${{ steps.meta.outputs.TAG }}
+            ghcr.io/${{ github.repository_owner }}/lightpage-web:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Update Deployment Image Tag
+        run: |
+          OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          sed -i "s|image: ghcr.io/${OWNER_LC}/lightpage-web:.*|image: ghcr.io/${OWNER_LC}/lightpage-web:${{ steps.meta.outputs.TAG }}|g" k8s/deployment.yaml
+
+      - name: Import GPG Key
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_committer_name: "redbean0721"
+          git_committer_email: "redbean0721@gmail.com"
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "redbean0721"
+          git config user.email "redbean0721@gmail.com"
+          git status
+          git commit -a -S -m "deploy(lightpage-web): $COMMIT_SUBJECT" -m "Update image tag to ${{ steps.meta.outputs.TAG }} [skip ci]"
+          git push origin main

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: litepage-web
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: litepage-web
+  template:
+    metadata:
+      labels:
+        app: litepage-web
+    spec:
+      containers:
+        - name: litepage-web
+          image: ghcr.io/redbean0721/litepage-web:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: litepage-web-svc
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: litepage-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
