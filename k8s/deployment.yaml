@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: lightpage-web
-          image: ghcr.io/redbean0721/lightpage:add0ea2
+          image: ghcr.io/redbean0721/lightpage:84e7f52
           ports:
             - containerPort: 80
           resources:
